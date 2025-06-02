@@ -6,3 +6,5 @@ to play go to https://cheezzyboii.github.io/burrito-bison-launcha-libre/index.ht
 to play go to https://cheezzyboii.github.io/bitlife/index.html
 ## Mindustry Classic
 to play go to https://cheezzyboii.github.io/mindustry-classic/index.html
+## Circloo
+to play go to https://cheezzyboii.github.io/circloo/index.html
