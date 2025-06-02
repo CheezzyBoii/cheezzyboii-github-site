@@ -8,3 +8,5 @@ to play go to https://cheezzyboii.github.io/bitlife/index.html
 to play go to https://cheezzyboii.github.io/mindustry-classic/index.html
 ## Circloo
 to play go to https://cheezzyboii.github.io/circloo/index.html
+## Circloo 2
+to play go to https://cheezzyboii.github.io/circloo-2/index.html
