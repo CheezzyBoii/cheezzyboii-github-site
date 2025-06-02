@@ -4,6 +4,8 @@ Welcome
 to play go to https://cheezzyboii.github.io/burrito-bison-launcha-libre/index.html
 ## Bit Life
 to play go to https://cheezzyboii.github.io/bitlife/index.html
+## Drift Boss
+to play go to https://cheezzyboii.github.io/drift-boss/index.html
 ## Drive Mad
 to play go to https://cheezzyboii.github.io/drive-mad/index.html
 ## Mindustry Classic
