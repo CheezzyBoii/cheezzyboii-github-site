@@ -8,6 +8,8 @@ to play go to https://cheezzyboii.github.io/bitlife/index.html
 to play go to https://cheezzyboii.github.io/drift-boss/index.html
 ## Drive Mad
 to play go to https://cheezzyboii.github.io/drive-mad/index.html
+## Getaway Shootout
+to play go to https://cheezzyboii.github.io/getaway-shootout/index.html
 ## Mindustry Classic
 to play go to https://cheezzyboii.github.io/mindustry-classic/index.html
 ## Circloo
