@@ -1,0 +1,484 @@
+<html>
+<head>
+    <meta name="google-adsense-account" content="ca-pub-1694306699122269">
+    <title>Home</title>
+    <link rel="icon" href="https://codehs.com/uploads/fc32d84f4cf713409d4567e4598f00aa">
+    <style>
+        body {
+            text-align: center; /* Center align the content */
+        }
+        div {
+            overflow-y: auto;
+        }
+
+        .search-input {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 200px;
+            outline: none;
+            background: #f0fff0; /* light green-tinted background */
+            color: #333;
+            font-size: 1em;
+            margin-right: 5px;
+        }
+
+        .button-container {
+            display: inline-block; /* Allow buttons to sit next to each other */
+            margin: 15px; /* Regular margin between buttons */
+            padding: 15px; /* Padding for button container */
+            background: lightgreen;
+            border-radius: 20px; /* Slightly rounded corners */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: background 0.3s; /* Smooth transition for hover effect */
+        }
+        .button-container-1 {
+            display: inline-block; /* Allow buttons to sit next to each other */
+            margin: 15px; /* Regular margin between buttons */
+            padding: 15px; /* Padding for button container */
+            background: lightgreen;
+            border-radius: 200px; /* Slightly rounded corners */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: background 0.3s; /* Smooth transition for hover effect */
+        }
+        .button-container:hover {
+            background: limegreen; /* Change background on hover */
+        }
+        .button-content {
+            display: flex;
+            flex-direction: column; /* Stack image above text */
+            align-items: center; /* Center align items horizontally */
+            color: white;
+            text-align: center; /* Center text */
+        }
+        .button-image {
+            width: 200px; /* Set a normal size for button images */
+            height: 200px; /* Set a normal height for button images */
+            display: block; /* Ensure the image behaves like a block element */
+            background-color: transparent; /* Ensure background is transparent */
+            margin-bottom: 5px; /* Space between image and text */
+            border-radius: 15px
+        }
+    </style>
+</head>
+
+<body background="https://codehs.com/uploads/d63481d90ed3e8962b928f7d42916593">
+    <img src="https://codehs.com/uploads/5bbf446f52d738a0b4c4a97947a7b183" alt="Games Logo" style="margin-bottom: 20px;" /> <!-- Added margin for space below the logo -->
+    
+    <div float="center">
+        <input type="text" id="searchBox" class="search-input" placeholder="Search games..." onkeyup="filterGames()" style="margin: 20px; padding: 10px; font-size: 16px; border-radius: 150px;">
+    </div>
+
+    <!-----Google Ad Sense----->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1694306699122269"
+     crossorigin="anonymous"></script>
+
+    <!-- Game Selection -->
+    <div>
+        <div class="button-container" onclick="openGame('BBC/2048.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/49a82c97364bf7f10f460d705c3a0923" alt="2048">
+                <span>2048</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('BBC/Ahoy.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/3ad6064f8283bd6583384ad5203f3aeb" alt="Ahoy">
+                <span>Ahoy</span>
+            </div>
+        </div>        
+        
+        <div class="button-container" onclick="openGame('data:text/html;base64,PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvcGFpZ2Vyb2RlZ2hlcm8vYWNhZGVtaWN3ZWJzaXRlQDg5N2M5MTBjNjVlNmM2OGIwNGM0NGE2YjZlYmEwYjk5ZDBmMmYyY2YvVGVtcGxhdGVEYXRhL3N0eWxlLmNzcyI+IDxzY3JpcHQgc3JjPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvcGFpZ2Vyb2RlZ2hlcm8vYWNhZGVtaWN3ZWJzaXRlQDg5N2M5MTBjNjVlNmM2OGIwNGM0NGE2YjZlYmEwYjk5ZDBmMmYyY2YvVGVtcGxhdGVEYXRhL1VuaXR5UHJvZ3Jlc3MuanMiPjwvc2NyaXB0PiA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL2dlcnRkb3JvL1VuaXR5Qm9va1BhZ2VAZDAyMmY5Mzc4YTZiODYwODc5NjI1M2FkZDdhNjU0YzE0OTIwZjQ1NC9Bc3NldHMvQm9vay1QYWdlJTIwQ3VybC9zcHJpdGVzL3RhYnMuanMiPjwvc2NyaXB0PiA8c2NyaXB0PiB2YXIgZ2FtZUluc3RhbmNlID0gVW5pdHlMb2FkZXIuaW5zdGFudGlhdGUoImdhbWVDb250YWluZXIiLCAiaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL2dlcnRkb3JvL1VuaXR5Qm9va1BhZ2VAZDAyMmY5Mzc4YTZiODYwODc5NjI1M2FkZDdhNjU0YzE0OTIwZjQ1NC9Bc3NldHMvQm9vay1QYWdlJTIwQ3VybC9zcHJpdGVzL3RhYnMuanNvbiIsIHtvblByb2dyZXNzOiBVbml0eVByb2dyZXNzLE1vZHVsZTp7b25SdW50aW1lSW5pdGlhbGl6ZWQ6IGZ1bmN0aW9uKCkge1VuaXR5UHJvZ3Jlc3MoZ2FtZUluc3RhbmNlLCAiY29tcGxldGUiKX19fSk7IDwvc2NyaXB0PiA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9zMy5hbWF6b25hd3MuY29tL3Byb2R1Y3Rpb24tYXNzZXRzYnVja2V0LThsanZ5cjF4Y3ptYi9hZGRjNDM0OC0xNmMyLTQ2NDUtOWRmZi1mOTliOTYyZTM5ZWYlMkZzY3IuanMiPjwvc2NyaXB0PiA8ZGl2IGNsYXNzPSJ3ZWJnbC1jb250ZW50Ij4gPGRpdiBpZD0iZ2FtZUNvbnRhaW5lciIgc3R5bGU9IndpZHRoOiAxMDB2dzsgaGVpZ2h0OiAxMDB2aCI+PC9kaXY+IDwvZGl2Pg==')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/9db1fd5f89ba6e6d539a213b84b81ee3" alt="Battle Sim">
+                <span>Battle Sim</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('BBC/Basket-Random/index.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/005514a78abf0f61401fca1aba83116e" alt="Basket Random">
+                <span>Basket Random</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('BBC/Basketball-Stars.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/e29c2d11dce2daecbe9efc89dd5a7b67" alt="Basketball Stars">
+                <span>Basketball Stars</span>
+            </div>
+        </div>
+                
+        <div class="button-container" onclick="openGame('BBC/Bit-Life/index.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/c04feab65aa30e68496629ec33f3e441" alt="Bit Life">
+                <span>Bit Life</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('data:text/html;base64,PCFkb2N0eXBlIGh0bWw+IDxodG1sIGxhbmc9ImVuIj4gPGh0bWw+IDxoZWFkPjxzY3JpcHQgYXN5bmMgc3JjPSJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbS9ndGFnL2pzP2lkPUctTUVOQk02R1NOWSI+PC9zY3JpcHQ+PHNjcmlwdD5mdW5jdGlvbiBndGFnKCl7ZGF0YUxheWVyLnB1c2goYXJndW1lbnRzKX13aW5kb3cuZGF0YUxheWVyPXdpbmRvdy5kYXRhTGF5ZXJ8fFtdLGd0YWcoImpzIixuZXcgRGF0ZSksZ3RhZygiY29uZmlnIiwiRy1NRU5CTTZHU05ZIik8L3NjcmlwdD4gPHRpdGxlPkJsb29ucyBUb3dlciBEZWZlbnNlPC90aXRsZT4gPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvMW1ydGwvYXNzZXRzQDVjYjYxYjM1M2NmZjAzNjVjMDgyYzkzMDllODJiYjU2MWMwMjcyMDEvUnVuJTIwMi93YWZsYXNoL3dhZmxhc2gtc3R5bGUuY3NzIiB0eXBlPSJ0ZXh0L2NzcyI+IDxzY3JpcHQ+IHZhciBnYW1lQ29uZmlnID0geyBzd2ZVcmw6ICJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvc3VwYXViL2ludGVyc3RlbGxhci0zQDhhMTNjNzM1ZTdkZjZkODY2MDJiMzU0ZTQ1YzA5MDQwNWYyMWY0NWEvcGxheS9mbGFzaC9zd2YvYmxvb25zdGQxLnN3ZiIgfSA8L3NjcmlwdD4gPC9oZWFkPiA8Ym9keT4gPGRpdiBpZD0id2FmbGFzaENvbnRhaW5lciI+IDxjYW52YXMgY2xhc3M9IndhZmxhc2hDYW52YXMiIGlkPSJjYW52YXMiIHRhYmluZGV4PSIxIj48L2NhbnZhcz4gPGRpdiBpZD0id2FmbGFzaFN0YXR1cyIgc3R5bGU9ImRpc3BsYXk6IG5vbmU7Ij5QbGF5aW5nLi4uPC9kaXY+IDxzY3JpcHQ+IHZhciB1YSA9IG5hdmlnYXRvci51c2VyQWdlbnQudG9Mb3dlckNhc2UoKTsgaWYgKCAobmF2aWdhdG9yLmFwcE5hbWUgPT0nTmV0c2NhcGUnICYmIHVhLmluZGV4T2YoJ3RyaWRlbnQnKSAhPSAtMSkgfHwgKHVhLmluZGV4T2YoIm1zaWUiKSAhPSAtMSkpIHsgdmFyIHdhZiA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd3YWZsYXNoU3RhdHVzJyk7IHdhZi5zdHlsZS5kaXNwbGF5ID0nYmxvY2snOyB3YWYuaW5uZXJUZXh0ID0nPz8/ID8/Pz8/KElFKSA/Pz8gPz8/ID8/Pz8gPz8/PyAhXG4/PywgPz8/PyA/PyA/Pz8/PyA/Pz8/Pz8uJzsgZ3RhZygnZXZlbnQnLCAnY29ubmVjdF9mcm9tX2llJywgeydldmVudF9jYXRlZ29yeSc6ICdlcnJvcicsICdldmVudF9sYWJlbCc6IHVhIH0pOyB9IDwvc2NyaXB0PiA8c2NyaXB0IHR5cGU9Im1vZHVsZSIgY3Jvc3NvcmlnaW49ImFub255bW91cyI+IGxldCBpc19tb2JpbGUgPSAvTW9iaS9pLnRlc3Qod2luZG93Lm5hdmlnYXRvci51c2VyQWdlbnQpOyBpZiAoaXNfbW9iaWxlKSB7IGZ1bmN0aW9uIHNjcm9sbFRvU3ViamVjdCgpIHsgdHJ5IHsgd2luZG93LnNjcm9sbFRvKHsgdG9wOiAxMDAsIGxlZnQ6IDAsIGJlaGF2aW9yOiAnc21vb3RoJyB9KTsgfSBjYXRjaCAoZSkge30gfSBzY3JvbGxUb1N1YmplY3QoKTsgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoIm9yaWVudGF0aW9uY2hhbmdlIiwgZnVuY3Rpb24oKSB7IHNldFRpbWVvdXQoc2Nyb2xsVG9TdWJqZWN0LCAxMDApOyB9KTsgfSBlbHNlIHsgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2NhbnZhcycpLmZvY3VzKCk7IH0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2NhbnZhcycpLmFkZEV2ZW50TGlzdGVuZXIoImtleWRvd24iLCBmdW5jdGlvbihldikgeyBldi5wcmV2ZW50RGVmYXVsdCgpOyBldi5zdG9wUHJvcGFnYXRpb24oKTsgfSk7IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjYW52YXMnKS5hZGRFdmVudExpc3RlbmVyKCJjbGljayIsIGZ1bmN0aW9uKCkgeyBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY2FudmFzJykuZm9jdXMoKTsgfSk7IGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoIm1vdXNlZG93biIsIChmdW5jdGlvbigpIHsgY29uc3QgY2FudmFzRWxlbWVudCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjYW52YXMnKTsgbGV0IGZvY3VzZWQgPSBmYWxzZTsgcmV0dXJuIGZ1bmN0aW9uKGV2KSB7IGlmIChldi50YXJnZXQgPT0gY2FudmFzRWxlbWVudCkgeyBpZiAoIWZvY3VzZWQpIHsgY2FudmFzRWxlbWVudC5mb2N1cygpOyBmb2N1c2VkID0gdHJ1ZTsgfSB9IGVsc2UgeyBpZiAoZm9jdXNlZCkgeyBmb2N1c2VkID0gZmFsc2U7IH0gfSByZXR1cm4gdHJ1ZTsgfSB9KSgpKTsgaW1wb3J0IHsgY3JlYXRlV2FmbGFzaCB9IGZyb20gJ2h0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC96aGl0NzMvd2FmZWRpdEBiZDZjMGI3NzljM2Q4YjE3NWU2MGMxNDkxOTRmNjM0NDgwN2IyMWFhL3dhc20vd2FmbGFzaC1wbGF5ZXIubWluLmpzJzsgY3JlYXRlV2FmbGFzaChnYW1lQ29uZmlnLnN3ZlVybCwgd2luZG93LndhZk9wdGlvbnMgfHwge30pOyA8L3NjcmlwdD4gPC9kaXY+IDxzY3JpcHQgc3JjPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvc3QzOS9zZGtAbWFpbi9hcGkuanMiPjwvc2NyaXB0PjwvYm9keT4gPC9odG1sPg==')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/4a1440085d63f3c979c68f42ef798b89" alt="Bloons Tower Defense">
+                <span>Bloons Tower Defense</span>
+            </div>
+        </div>
+
+        <div class="button-container" onclick="openGame('CookieClickerLink')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/71882f27d5f1a897cf8e575f4a6df3ec" alt="Cookie Clicker">
+                <span>Cookie Clicker</span>
+            </div>
+        </div>
+
+        <div class="button-container" onclick="openGame('BBC/ClassiCube.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/1a7aeaae960aacfdd9d1b3a71cc853dd" alt="Classi Cube">
+                <span>Classi Cube</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('BBC/ClusterRush.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/ef5489463681a35d2eb69607e2740cfe" alt="Cluster Rush">
+                <span>Cluster Rush</span>
+            </div>
+        </div>
+
+        <div class="button-container" onclick="openGame('data:text/html;base64,PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvbGVlMnNtYW4vZXZlcnlkYXlAZDQ1ZDYwMWQyYzRkNjBhZGY4MDlhMGI2NzdjMDBiN2QxMmFiYTdlOS85Ni9UZW1wbGF0ZURhdGEvc3R5bGUuY3NzIj4gPHNjcmlwdCBzcmM9Imh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9sZWUyc21hbi9ldmVyeWRheUBkNDVkNjAxZDJjNGQ2MGFkZjgwOWEwYjY3N2MwMGI3ZDEyYWJhN2U5Lzk2L1RlbXBsYXRlRGF0YS9Vbml0eVByb2dyZXNzLmpzIj48L3NjcmlwdD4gPHNjcmlwdCBzcmM9Imh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9reXNici8xQGJjYmQ2OTc2OTRmMGZmYWMxZTUxMzdkMWNmODA5MGRmMWUwNmQ5YTgvQnVpbGQvVW5pdHlMb2FkZXIuanMiPjwvc2NyaXB0PiA8c2NyaXB0PiB2YXIgZ2FtZUluc3RhbmNlID0gVW5pdHlMb2FkZXIuaW5zdGFudGlhdGUoImdhbWVDb250YWluZXIiLCAiaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL2t5c2JyLzFAYmNiZDY5NzY5NGYwZmZhYzFlNTEzN2QxY2Y4MDkwZGYxZTA2ZDlhOC9CdWlsZC9kZWF0aF9ydW5fd2FzbV92MS5qc29uIiwge29uUHJvZ3Jlc3M6IFVuaXR5UHJvZ3Jlc3MsTW9kdWxlOntvblJ1bnRpbWVJbml0aWFsaXplZDogZnVuY3Rpb24oKSB7VW5pdHlQcm9ncmVzcyhnYW1lSW5zdGFuY2UsICJjb21wbGV0ZSIpfX19KTsgPC9zY3JpcHQ+IDxzY3JpcHQgc3JjPSJodHRwczovL3MzLmFtYXpvbmF3cy5jb20vcHJvZHVjdGlvbi1hc3NldHNidWNrZXQtOGxqdnlyMXhjem1iL2FkZGM0MzQ4LTE2YzItNDY0NS05ZGZmLWY5OWI5NjJlMzllZiUyRnNjci5qcyI+PC9zY3JpcHQ+IDxkaXYgY2xhc3M9IndlYmdsLWNvbnRlbnQiPiA8ZGl2IGlkPSJnYW1lQ29udGFpbmVyIiBzdHlsZT0id2lkdGg6IDEwMHZ3OyBoZWlnaHQ6IDEwMHZoIj48L2Rpdj4gPC9kaXY+')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/4f309e64bbaed8922d3948ee7441e488" alt="Death Run 3D">
+                <span>Death Run 3D</span>
+            </div>
+        </div>
+
+        <div class="button-container" onclick="openGame('data:text/html;base64,PCFET0NUWVBFIGh0bWw+IDxodG1sPiA8aGVhZD4gPHRpdGxlPkRyaWZ0IEJvc3M8L3RpdGxlPiA8bGluayByZWw9Imljb24iIHR5cGU9ImltYWdlL3gtaWNvbiIgaHJlZj0iL21lZGlhL2dyYXBoaWNzL21pc2MvZmF2aWNvbi5pY28iPiA8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LXR5cGUiIGNvbnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD11dGYtOCI+IDxtZXRhIG5hbWU9InJvYm90cyIgY29udGVudD0ibm9pbmRleCwgbm9mb2xsb3ciPiA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLGhlaWdodD1kZXZpY2UtaGVpZ2h0LCBpbml0aWFsLXNjYWxlPTEsIG1heGltdW0tc2NhbGU9MSwgdXNlci1zY2FsYWJsZT0wLCBtaW5pbWFsLXVpIiAvPiA8bWV0YSBuYW1lPSJhcHBsZS1tb2JpbGUtd2ViLWFwcC1jYXBhYmxlIiBjb250ZW50PSJ5ZXMiPiA8c2NyaXB0IGFzeW5jIHNyYz0iaHR0cHM6Ly93d3cuZ29vZ2xldGFnbWFuYWdlci5jb20vZ3RhZy9qcz9pZD1HLU1FTkJNNkdTTlkiPjwvc2NyaXB0PjxzY3JpcHQ+ZnVuY3Rpb24gZ3RhZygpe2RhdGFMYXllci5wdXNoKGFyZ3VtZW50cyl9d2luZG93LmRhdGFMYXllcj13aW5kb3cuZGF0YUxheWVyfHxbXSxndGFnKCJqcyIsbmV3IERhdGUpLGd0YWcoImNvbmZpZyIsIkctTUVOQk02R1NOWSIpPC9zY3JpcHQ+IDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgdHlwZT0idGV4dC9jc3MiIGhyZWY9Imh0dHBzOi8vNzM4NTAxNjI5LTQ2MTA4Mjc0ODI2MTA1ODQyNy5wcmV2aWV3LmVkaXRteXNpdGUuY29tL3VwbG9hZHMvYi8xMzk4OTAxMjktODE3NTEwNjUyMzIzMTI5NDA3L2ZpbGVzL2dhbWUuY3NzIj4gPHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cHM6Ly83Mzg1MDE2MjktNDYxMDgyNzQ4MjYxMDU4NDI3LnByZXZpZXcuZWRpdG15c2l0ZS5jb20vdXBsb2Fkcy9iLzEzOTg5MDEyOS04MTc1MTA2NTIzMjMxMjk0MDcvZmlsZXMvZ2FtZS5qcyI+PC9zY3JpcHQ+IDwvaGVhZD4gPGJvZHkgb25sb2FkPSJzZXRUaW1lb3V0KGZ1bmN0aW9uKCl7d2luZG93LnNjcm9sbFRvKDAsMSl9LDEpOyI+IDxkaXYgaWQ9ImFqYXhiYXIiPiA8ZGl2IGlkPSJnYW1lIj48Y2FudmFzIGlkPSJjYW52YXMiPjwvY2FudmFzPjwvZGl2PiA8ZGl2IGlkPSJ3ZWJnbCI+PGNhbnZhcyBpZD0id2ViZ2xjYW52YXMiPjwvY2FudmFzPjwvZGl2PiA8ZGl2IGlkPSJvcmllbnRhdGUiPjxpbWcgc3JjPSJodHRwczovLzczODUwMTYyOS00NjEwODI3NDgyNjEwNTg0MjcucHJldmlldy5lZGl0bXlzaXRlLmNvbS91cGxvYWRzL2IvMTM5ODkwMTI5LTgxNzUxMDY1MjMyMzEyOTQwNy9maWxlcy9tZWRpYS9ncmFwaGljcy9vcmllbnRhdGUvbGFuZHNjYXBlLmpwZyI+PC9kaXY+IDxkaXYgaWQ9InBsYXkiIGNsYXNzPSJwbGF5IiBvbmNsaWNrPSIiPjxpbWcgc3JjPSJodHRwczovLzczODUwMTYyOS00NjEwODI3NDgyNjEwNTg0MjcucHJldmlldy5lZGl0bXlzaXRlLmNvbS91cGxvYWRzL2IvMTM5ODkwMTI5LTgxNzUxMDY1MjMyMzEyOTQwNy9maWxlcy9tZWRpYS9ncmFwaGljcy9zcGxhc2gvbW9iaWxlL2NvdmVyLXN0YXJ0LmpwZyI+PC9kaXY+IDwvZGl2PiA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3N0Mzkvc2RrQG1haW4vYXBpLmpzIj48L3NjcmlwdD4gPC9ib2R5PiA8L2h0bWw+')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/9c8fc5d902a10e41364dabab69a0e173" alt="Drift Boss">
+                <span>Drift Boss</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('BBC/Drive-Mad.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/f62513b3c55229852d2de16122d6506e" alt="Drive Mad">
+                <span>Drive Mad</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('https://script.google.com/macros/s/AKfycbysJKtWMnsbhg8q1RmnOEAr2U89XMzTL2Ca0w9lqKdoi7dx9QZbwsqzQdCcCBmLUtiI6A/exec')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/c00d68535ecd0da0e2f69b7fb7c1bd16" alt="Duck Duck Clicker">
+                <span>Duck Duck Clicker</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('BBC/FishingIO/index.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/3f1d331956a4a93c504f4ac6e177fcea" alt="Fishing.io">
+                <span>Fishing.io</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('FNAFLink')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/9f77c83a19949a2441d0c8a6e6b45ee1" alt="FNAF">
+                <span>FNAF</span>
+            </div>
+        </div>
+
+        <div class="button-container" onclick="openGame('GeometryDashLink')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/660b88e86d946969d85daa9250a5cc56" alt="Geometry Dash">
+                <span>Geometry Dash</span>
+            </div>
+        </div>
+
+        <div class="button-container" onclick="openGame('data:text/html;base64,PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvbGVlMnNtYW4vZXZlcnlkYXlAZDQ1ZDYwMWQyYzRkNjBhZGY4MDlhMGI2NzdjMDBiN2QxMmFiYTdlOS85Ni9UZW1wbGF0ZURhdGEvc3R5bGUuY3NzIj4gPHNjcmlwdCBzcmM9Imh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9sZWUyc21hbi9ldmVyeWRheUBkNDVkNjAxZDJjNGQ2MGFkZjgwOWEwYjY3N2MwMGI3ZDEyYWJhN2U5Lzk2L1RlbXBsYXRlRGF0YS9Vbml0eVByb2dyZXNzLmpzIj48L3NjcmlwdD4gPHNjcmlwdCBzcmM9Imh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9sb3Jkc29mZGFuay9HZXRhd2F5U2hvb3RvdXRAOWU5OTk2NGM0MzYzODM0NjY4MGZjZTQ1ZDNiMjk2NDA4ZGE2MTE4MS9CdWlsZC9Vbml0eUxvYWRlci5qcyI+PC9zY3JpcHQ+IDxzY3JpcHQ+IHZhciBnYW1lSW5zdGFuY2UgPSBVbml0eUxvYWRlci5pbnN0YW50aWF0ZSgiZ2FtZUNvbnRhaW5lciIsICJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvbG9yZHNvZmRhbmsvR2V0YXdheVNob290b3V0QDllOTk5NjRjNDM2MzgzNDY2ODBmY2U0NWQzYjI5NjQwOGRhNjExODEvQnVpbGQvR2V0YXdheVNob290b3V0VHdvUGxheWVyR2FtZXNPcmcuanNvbiIsIHtvblByb2dyZXNzOiBVbml0eVByb2dyZXNzLE1vZHVsZTp7b25SdW50aW1lSW5pdGlhbGl6ZWQ6IGZ1bmN0aW9uKCkge1VuaXR5UHJvZ3Jlc3MoZ2FtZUluc3RhbmNlLCAiY29tcGxldGUiKX19fSk7IDwvc2NyaXB0PiA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9zMy5hbWF6b25hd3MuY29tL3Byb2R1Y3Rpb24tYXNzZXRzYnVja2V0LThsanZ5cjF4Y3ptYi9hZGRjNDM0OC0xNmMyLTQ2NDUtOWRmZi1mOTliOTYyZTM5ZWYlMkZzY3IuanMiPjwvc2NyaXB0PiA8ZGl2IGNsYXNzPSJ3ZWJnbC1jb250ZW50Ij4gPGRpdiBpZD0iZ2FtZUNvbnRhaW5lciIgc3R5bGU9IndpZHRoOiAxMDB2dzsgaGVpZ2h0OiAxMDB2aCI+PC9kaXY+IDwvZGl2Pg==')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/37dc962894c84d917c4b012902353767" alt="Getaway Shootout">
+                <span>Getaway Shootout</span>
+            </div>
+        </div>
+
+        <div class="button-container" onclick="openGame('BBC/Granny/index.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/8f7c7fa3dca2632fe0444ee3fd5d5961" alt="Granny">
+                <span>Granny</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('BBC/Granny2/index.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/3564e57dc71ee2b5a9fbe69dfc22afb2" alt="Granny 2">
+                <span>Granny 2</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('https://codehs.com/uploads/8218413974a14cc05c9ab47cbb448510')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/c5fb53dccdb83b05ec585f3ae366bebe" alt="Gun Spin">
+                <span>Gun Spin</span>
+            </div>
+        </div>
+
+        <div class="button-container" onclick="openGame('BBC/Happy-Wheels.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/b357ca08cc772cfd868e8b6239c056f6" alt="Happy Wheels">
+                <span>Happy Wheels</span>
+            </div>
+        </div>
+
+        <div class="button-container" onclick="openGame('BBC/ragdoll-archers/index.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/b0b9562d66c815c8a9482f225ee98f23" alt="Ragdoll Archers">
+                <span>Ragdoll Archers</span>
+            </div>
+        </div>
+
+        <div class="button-container" onclick="openGame('https://codehs.com/uploads/67b96dbff6bf601a0322e5399c480a21')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/b561a7080b275b2e6eede4b69c70885a" alt="Stickman Hook">
+                <span>Stickman Hook</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('BBC/SnowRider3D.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/15545299cceba5d2581ace9379ce2d8b" alt="Snow Rider 3D">
+                <span>Snow Rider 3D</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('https://script.google.com/macros/s/AKfycbzqDA2SnuVZ3DRelxxbUxSV9Z1RJz_gQfDRx06WUpgppWgrdDEErtZ1Lev9O6j2w9ioBQ/exec')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/ac55f93f1d9bb57fc656e977174c85cf" alt="Slow Roads">
+                <span>Slow Roads</span>
+            </div>
+        </div>
+        
+        <div class="button-container" onclick="openGame('BBC/Poly-Track2.0.html')">
+            <div class="button-content">
+                <img class="button-image" src="https://codehs.com/uploads/4e4d3b69d99258c1a51614077b29d35c" alt="PolyTrack">
+                <span>PolyTrack</span>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="button-container-1" onclick="location.href='info.html'">
+            <div class="button-content">
+                <span>Info</span>
+        </div>
+    </div>
+        <div class="button-container-1" onclick="location.href='https://sites.google.com/student.dodea.edu/bbc-4-everyone/home'">
+            <div class="button-content">
+                <span>Google Site</span>
+            </div>
+        </div>
+    </div>    
+    
+    
+
+    <p style="font-size: 3vw">Welcome to BBC Lite</p>
+    <script>
+    function openGame(gameUrl) {
+      var win = window.open('', '_blank');
+    
+      win.document.write(`
+        <html>
+          <head>
+            <title>Ela Essay</title>
+            <link rel="icon" href="https://codehs.com/uploads/4ef95ab201cc688a130f617f34fc0e4e">
+            <style>
+              html, body {
+                margin: 0; padding: 0; font-family: sans-serif; background: transparent; overflow: hidden;
+              }
+              #splash {
+                position: fixed; width: 100%; height: 100vh;
+                background: url("https://codehs.com/uploads/d63481d90ed3e8962b928f7d42916593");
+                display: flex; flex-direction: column; justify-content: center; align-items: center;
+                z-index: 1000; transition: opacity 0.5s ease;
+              }
+              #splash img {
+                max-width: 200px; max-height: 200px;
+              }
+              .progress-bar {
+                width: 80%; height: 10px; background: #ddd; border-radius: 5px; margin-top: 20px; overflow: hidden;
+              }
+              .progress-bar-fill {
+                height: 100%; width: 0; background: lightgreen; animation: fillBar 2.5s linear forwards;
+              }
+              @keyframes fillBar {
+                100% { width: 100%; }
+              }
+              #mainContent {
+                display: none;
+              }
+              .hover-zone {
+                position: fixed; top: 0; left: 0; width: 100%; height: 20px; z-index: 10;
+              }
+              .button-box {
+                position: fixed; top: -47px; left: 50%; transform: translateX(-50%);
+                background-color: #f8f8f8; border-radius: 12px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                padding: 10px; display: flex; gap: 10px; transition: top 0.3s ease; z-index: 11;
+              }
+              .hover-zone:hover + .button-box,
+              .button-box:hover {
+                top: 0;
+              }
+              button {
+                padding: 8px 14px; background: lightgreen; color: white; border: none; border-radius: 200px;
+                cursor: pointer; font-size: 14px; white-space: nowrap;
+              }
+              iframe#gameFrame {
+                width: 100%; height: 100vh; border: none; display: block; position: absolute; top: 0; left: 0; z-index: 1;
+              }
+              #fakeScreen {
+                display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+                background: white; z-index: 9; justify-content: center; align-items: center; font-size: 2em; color: gray;
+              }
+              body.dark {
+                background: #111; color: white;
+              }
+              body.dark .button-box {
+                background: #333;
+              }
+              body.dark #fakeScreen {
+                background: #222; color: #ccc;
+              }
+              #overlayContent {
+                position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 2;
+                pointer-events: none;
+              }
+            </style>
+          </head>
+          <body>
+            <div id="splash">
+              <img src="https://codehs.com/uploads/5bbf446f52d738a0b4c4a97947a7b183" alt="Logo" />
+              <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+              </div>
+            </div>
+    
+            <div id="mainContent">
+              <div class="hover-zone"></div>
+              <div class="button-box">
+                <button onclick="window.close()">Close</button>
+                <button onclick="panic()">Panic</button>
+                <button id="hideBtn" onclick="hideGame()">Hide Game</button>
+                <button id="unhideBtn" onclick="unhideGame()" style="display:none;">Unhide Game</button>
+                <button onclick="toggleDarkMode()">Dark Mode</button>
+              </div>
+              <div id="fakeScreen">ELA Essay - Writing in Progress...</div>
+            </div>
+    
+            <iframe id="gameFrame" src="${gameUrl}" allowtransparency="true" allowfullscreen></iframe>
+    
+            <div id="overlayContent"></div>
+    
+            <script>
+              let savedDocUrl = null;
+    
+              window.onload = function () {
+                setTimeout(() => {
+                  document.getElementById("splash").style.opacity = "0";
+                  setTimeout(() => {
+                    document.getElementById("splash").style.display = "none";
+                    document.getElementById("mainContent").style.display = "block";
+                    document.body.style.overflow = "auto";
+                  }, 500);
+                }, 2500);
+              };
+    
+              function panic() {
+                window.open("https://classroom.google.com", "_blank");
+                window.close();
+              }
+    
+              function hideGame() {
+                const docUrl = prompt("Paste your Google Doc link here (must start with https://docs.google.com):");
+    
+                if (docUrl && docUrl.startsWith("https://docs.google.com")) {
+                  savedDocUrl = docUrl;
+    
+                  const gameFrame = document.getElementById("gameFrame");
+                  const fakeScreen = document.getElementById("fakeScreen");
+    
+                  // Create new iframe for Google Doc if not exists
+                  let docFrame = document.getElementById("docFrame");
+                  if (!docFrame) {
+                    docFrame = document.createElement("iframe");
+                    docFrame.id = "docFrame";
+                    docFrame.style.position = "absolute";
+                    docFrame.style.top = "0";
+                    docFrame.style.left = "0";
+                    docFrame.style.width = "100%";
+                    docFrame.style.height = "100vh";
+                    docFrame.style.border = "none";
+                    docFrame.style.zIndex = "3";
+                    document.body.appendChild(docFrame);
+                  }
+                  docFrame.src = savedDocUrl;
+    
+                  gameFrame.style.display = "none";
+                  fakeScreen.style.display = "none";
+                  docFrame.style.display = "block";
+    
+                  // Toggle buttons
+                  document.getElementById("hideBtn").style.display = "none";
+                  document.getElementById("unhideBtn").style.display = "inline-block";
+                } else {
+                  alert("That doesn't look like a valid Google Doc link.");
+                }
+              }
+    
+              function unhideGame() {
+                const gameFrame = document.getElementById("gameFrame");
+                const fakeScreen = document.getElementById("fakeScreen");
+                const docFrame = document.getElementById("docFrame");
+    
+                if (docFrame) {
+                  docFrame.style.display = "none";
+                }
+    
+                gameFrame.style.display = "block";
+                fakeScreen.style.display = "none";
+    
+                // Toggle buttons
+                document.getElementById("hideBtn").style.display = "inline-block";
+                document.getElementById("unhideBtn").style.display = "none";
+              }
+    
+              function toggleDarkMode() {
+                document.body.classList.toggle("dark");
+              }
+            </scr` + `ipt>
+          </body>
+        </html>
+      `);
+    
+      win.document.close();
+    }
+    </script>
+    <script>
+    window.onload = () => {
+        const container = document.getElementById('gameButtons');
+        const buttons = Array.from(container.getElementsByTagName('button'));
+    
+        buttons.sort((a, b) => {
+            const nameA = a.textContent.trim().toUpperCase();
+            const nameB = b.textContent.trim().toUpperCase();
+            return nameA.localeCompare(nameB);
+        });
+    
+        container.innerHTML = '';
+        buttons.forEach(button => container.appendChild(button));
+    };
+
+    </script>
+
+</script>
+</body>
+</html>

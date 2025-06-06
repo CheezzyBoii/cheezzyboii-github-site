@@ -1,0 +1,248 @@
+<html>
+  <head>
+    <title>Ela Essay</title>
+    <link
+      rel="icon"
+      href="https://codehs.com/uploads/4ef95ab201cc688a130f617f34fc0e4e"
+    />
+<style>html, body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: transparent;
+        overflow: hidden;
+      }
+
+      /* SPLASH SCREEN STYLES */
+      #splash {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background:
+              url("https://codehs.com/uploads/d63481d90ed3e8962b928f7d42916593");
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: opacity 0.5s ease;
+      }
+
+      #splash img {
+        max-width: 200px;
+        max-height: 200px;
+      }
+
+      .progress-bar {
+        width: 80%;
+        height: 10px;
+        background: #ddd;
+        border-radius: 5px;
+        margin-top: 20px;
+        overflow: hidden;
+      }
+
+      .progress-bar-fill {
+        height: 100%;
+        width: 0;
+        background: lightgreen;
+        animation: fillBar 2.5s linear forwards;
+      }
+
+      @keyframes fillBar {
+        100% {
+          width: 100%;
+        }
+      }
+
+      /* MAIN PAGE CONTENT HIDDEN INITIALLY */
+      #mainContent {
+        display: none;
+      }
+
+      /* BUTTON BOX & HOVER ZONE */
+      .hover-zone {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        z-index: 10;
+      }
+
+      .button-box {
+        position: fixed;
+        top: -47px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f8f8f8;
+        border-radius: 12px 12px 12px 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+        transition: top 0.3s ease;
+        z-index: 11;
+      }
+
+      .hover-zone:hover + .button-box,
+      .button-box:hover {
+        top: 0;
+      }
+
+      button {
+        padding: 8px 14px;
+        background: lightgreen;
+        color: white;
+        border: none;
+        border-radius: 200px;
+        cursor: pointer;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100vh;
+        border: none;
+        display: block;
+      }
+
+      #fakeScreen {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        z-index: 9;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        color: gray;
+      }
+
+      body.dark {
+        background: #111;
+        color: white;
+      }
+
+      body.dark .button-box {
+        background: #333;
+      }
+
+      body.dark #fakeScreen {
+        background: #222;
+        color: #ccc;
+      }</style>
+  </head>
+  <body>
+    <!-- SPLASH SCREEN -->
+    <div id="splash">
+      <img
+        src="https://codehs.com/uploads/5bbf446f52d738a0b4c4a97947a7b183"
+        alt="Logo"
+      />
+      <div class="progress-bar">
+        <div class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="mainContent">
+      <div class="hover-zone"></div>
+
+      <div class="button-box">
+        <button onclick="window.close()">Close</button>
+        <button onclick="panic()">Panic</button>
+        <button onclick="hideGame()">Hide Game</button>
+        <button onclick="unhideGame()">Unhide Game</button>
+        <button onclick="toggleDarkMode()">Dark Mode</button>
+      </div>
+
+
+      <div id="fakeScreen">ELA Essay - Writing in Progress...</div>
+    </div>
+
+    <script>
+  window.onload = function () {
+    // Get game URL from query string
+    const params = new URLSearchParams(window.location.search);
+    const gameUrl = params.get('game');
+
+    if (gameUrl) {
+      document.getElementById('gameFrame').src = decodeURIComponent(gameUrl);
+    }
+
+    // Splash screen transition
+    setTimeout(() => {
+      document.getElementById("splash").style.opacity = "0";
+      setTimeout(() => {
+        document.getElementById("splash").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+        document.body.style.overflow = "auto";
+      }, 500);
+    }, 2500);
+  };
+
+// Splash screen logic
+      window.onload = function () {
+        setTimeout(() => {
+          document.getElementById("splash").style.opacity = "0";
+          setTimeout(() => {
+            document.getElementById("splash").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+            document.body.style.overflow = "auto";
+          }, 500);
+        }, 2500);
+      };
+
+      function panic() {
+        window.open("https://classroom.google.com", "_blank");
+        window.close();
+      }
+
+      function hideGame() {
+        const docUrl = prompt("Paste your Google Doc link here (must start with https://docs.google.com):");
+
+        if (docUrl && docUrl.startsWith("https://docs.google.com")) {
+          const gameFrame = document.getElementById("gameFrame");
+          const fakeScreen = document.getElementById("fakeScreen");
+
+          // Create a new iframe for the Google Doc
+          const docFrame = document.createElement("iframe");
+          docFrame.id = "docFrame";
+          docFrame.src = docUrl;
+          docFrame.style.width = "100%";
+          docFrame.style.height = "100vh";
+          docFrame.style.border = "none";
+
+          // Hide game and fake screen, then insert doc iframe
+          gameFrame.style.display = "none";
+          fakeScreen.style.display = "none";
+
+          // Remove any existing docFrame first
+          const existingDoc = document.getElementById("docFrame");
+          if (existingDoc) existingDoc.remove();
+
+          document.body.appendChild(docFrame);
+        } else {
+          alert("That doesn't look like a valid Google Doc link.");
+        }
+      }
+
+      function unhideGame() {
+        document.getElementById("gameFrame").style.display = "block";
+        document.getElementById("fakeScreen").style.display = "none";
+
+        const docFrame = document.getElementById("docFrame");
+        if (docFrame) docFrame.remove();
+      }
+
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark");
+      }
+      </script>
+  </body>
+</html>
