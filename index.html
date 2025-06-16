@@ -144,10 +144,17 @@
                 <span>Basketball Stars</span>
             </div>
         </div>
-        
+                
+        <div class="button-container" onclick="openGame('bitlife/index.html')">
+            <div class="button-content">
+                <img class="button-image" src="img/Bit-Life.png" alt="Bit Life">
+                <span>Bit Life</span>
+            </div>
+        </div>
+
         <div class="button-container" onclick="openGame('data:text/html;base64,PCFkb2N0eXBlIGh0bWw+IDxodG1sIGxhbmc9ImVuIj4gPGh0bWw+IDxoZWFkPjxzY3JpcHQgYXN5bmMgc3JjPSJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbS9ndGFnL2pzP2lkPUctTUVOQk02R1NOWSI+PC9zY3JpcHQ+PHNjcmlwdD5mdW5jdGlvbiBndGFnKCl7ZGF0YUxheWVyLnB1c2goYXJndW1lbnRzKX13aW5kb3cuZGF0YUxheWVyPXdpbmRvdy5kYXRhTGF5ZXJ8fFtdLGd0YWcoImpzIixuZXcgRGF0ZSksZ3RhZygiY29uZmlnIiwiRy1NRU5CTTZHU05ZIik8L3NjcmlwdD4gPHRpdGxlPkJsb29ucyBUb3dlciBEZWZlbnNlPC90aXRsZT4gPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvMW1ydGwvYXNzZXRzQDVjYjYxYjM1M2NmZjAzNjVjMDgyYzkzMDllODJiYjU2MWMwMjcyMDEvUnVuJTIwMi93YWZsYXNoL3dhZmxhc2gtc3R5bGUuY3NzIiB0eXBlPSJ0ZXh0L2NzcyI+IDxzY3JpcHQ+IHZhciBnYW1lQ29uZmlnID0geyBzd2ZVcmw6ICJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvc3VwYXViL2ludGVyc3RlbGxhci0zQDhhMTNjNzM1ZTdkZjZkODY2MDJiMzU0ZTQ1YzA5MDQwNWYyMWY0NWEvcGxheS9mbGFzaC9zd2YvYmxvb25zdGQxLnN3ZiIgfSA8L3NjcmlwdD4gPC9oZWFkPiA8Ym9keT4gPGRpdiBpZD0id2FmbGFzaENvbnRhaW5lciI+IDxjYW52YXMgY2xhc3M9IndhZmxhc2hDYW52YXMiIGlkPSJjYW52YXMiIHRhYmluZGV4PSIxIj48L2NhbnZhcz4gPGRpdiBpZD0id2FmbGFzaFN0YXR1cyIgc3R5bGU9ImRpc3BsYXk6IG5vbmU7Ij5QbGF5aW5nLi4uPC9kaXY+IDxzY3JpcHQ+IHZhciB1YSA9IG5hdmlnYXRvci51c2VyQWdlbnQudG9Mb3dlckNhc2UoKTsgaWYgKCAobmF2aWdhdG9yLmFwcE5hbWUgPT0nTmV0c2NhcGUnICYmIHVhLmluZGV4T2YoJ3RyaWRlbnQnKSAhPSAtMSkgfHwgKHVhLmluZGV4T2YoIm1zaWUiKSAhPSAtMSkpIHsgdmFyIHdhZiA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd3YWZsYXNoU3RhdHVzJyk7IHdhZi5zdHlsZS5kaXNwbGF5ID0nYmxvY2snOyB3YWYuaW5uZXJUZXh0ID0nPz8/ID8/Pz8/KElFKSA/Pz8gPz8/ID8/Pz8gPz8/PyAhXG4/PywgPz8/PyA/PyA/Pz8/PyA/Pz8/Pz8uJzsgZ3RhZygnZXZlbnQnLCAnY29ubmVjdF9mcm9tX2llJywgeydldmVudF9jYXRlZ29yeSc6ICdlcnJvcicsICdldmVudF9sYWJlbCc6IHVhIH0pOyB9IDwvc2NyaXB0PiA8c2NyaXB0IHR5cGU9Im1vZHVsZSIgY3Jvc3NvcmlnaW49ImFub255bW91cyI+IGxldCBpc19tb2JpbGUgPSAvTW9iaS9pLnRlc3Qod2luZG93Lm5hdmlnYXRvci51c2VyQWdlbnQpOyBpZiAoaXNfbW9iaWxlKSB7IGZ1bmN0aW9uIHNjcm9sbFRvU3ViamVjdCgpIHsgdHJ5IHsgd2luZG93LnNjcm9sbFRvKHsgdG9wOiAxMDAsIGxlZnQ6IDAsIGJlaGF2aW9yOiAnc21vb3RoJyB9KTsgfSBjYXRjaCAoZSkge30gfSBzY3JvbGxUb1N1YmplY3QoKTsgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoIm9yaWVudGF0aW9uY2hhbmdlIiwgZnVuY3Rpb24oKSB7IHNldFRpbWVvdXQoc2Nyb2xsVG9TdWJqZWN0LCAxMDApOyB9KTsgfSBlbHNlIHsgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2NhbnZhcycpLmZvY3VzKCk7IH0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2NhbnZhcycpLmFkZEV2ZW50TGlzdGVuZXIoImtleWRvd24iLCBmdW5jdGlvbihldikgeyBldi5wcmV2ZW50RGVmYXVsdCgpOyBldi5zdG9wUHJvcGFnYXRpb24oKTsgfSk7IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjYW52YXMnKS5hZGRFdmVudExpc3RlbmVyKCJjbGljayIsIGZ1bmN0aW9uKCkgeyBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY2FudmFzJykuZm9jdXMoKTsgfSk7IGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoIm1vdXNlZG93biIsIChmdW5jdGlvbigpIHsgY29uc3QgY2FudmFzRWxlbWVudCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjYW52YXMnKTsgbGV0IGZvY3VzZWQgPSBmYWxzZTsgcmV0dXJuIGZ1bmN0aW9uKGV2KSB7IGlmIChldi50YXJnZXQgPT0gY2FudmFzRWxlbWVudCkgeyBpZiAoIWZvY3VzZWQpIHsgY2FudmFzRWxlbWVudC5mb2N1cygpOyBmb2N1c2VkID0gdHJ1ZTsgfSB9IGVsc2UgeyBpZiAoZm9jdXNlZCkgeyBmb2N1c2VkID0gZmFsc2U7IH0gfSByZXR1cm4gdHJ1ZTsgfSB9KSgpKTsgaW1wb3J0IHsgY3JlYXRlV2FmbGFzaCB9IGZyb20gJ2h0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC96aGl0NzMvd2FmZWRpdEBiZDZjMGI3NzljM2Q4YjE3NWU2MGMxNDkxOTRmNjM0NDgwN2IyMWFhL3dhc20vd2FmbGFzaC1wbGF5ZXIubWluLmpzJzsgY3JlYXRlV2FmbGFzaChnYW1lQ29uZmlnLnN3ZlVybCwgd2luZG93LndhZk9wdGlvbnMgfHwge30pOyA8L3NjcmlwdD4gPC9kaXY+IDxzY3JpcHQgc3JjPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvc3QzOS9zZGtAbWFpbi9hcGkuanMiPjwvc2NyaXB0PjwvYm9keT4gPC9odG1sPg==')">
             <div class="button-content">
-                <img class="button-image" src="https://codehs.com/uploads/4a1440085d63f3c979c68f42ef798b89" alt="Bloons Tower Defense">
+                <img class="button-image" src="img/Bloons-TD.png" alt="Bloons Tower Defense">
                 <span>Bloons Tower Defense</span>
             </div>
         </div>
@@ -161,7 +168,7 @@
 
         <div class="button-container" onclick="openGame('DIR/ClassiCube.html')">
             <div class="button-content">
-                <img class="button-image" src="https://codehs.com/uploads/1a7aeaae960aacfdd9d1b3a71cc853dd" alt="Getaway Shootout">
+                <img class="button-image" src="img/ClassiCube.png" alt="Getaway Shootout">
                 <span>Classi Cube</span>
             </div>
         </div>
@@ -177,13 +184,6 @@
             <div class="button-content">
                 <img class="button-image" src="https://codehs.com/uploads/9c8fc5d902a10e41364dabab69a0e173" alt="Drift Boss">
                 <span>Drift Boss</span>
-            </div>
-        </div>
-                
-        <div class="button-container" onclick="openGame('bitlife/index.html')">
-            <div class="button-content">
-                <img class="button-image" src="img/Bit-Life.png" alt="Bit Life">
-                <span>Bit Life</span>
             </div>
         </div>
         
