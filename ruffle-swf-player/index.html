@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ruffle SWF Player</title>
-  <script src="ruffle-web-selfhosted/"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <script src="ruffle-web-selfhosted/ruffle.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
   <style>
     * {
       box-sizing: border-box;
@@ -21,7 +21,6 @@
       align-items: center;
       height: 100vh;
       overflow: hidden;
-      transition: background 0.5s ease;
     }
 
     #ui-container {
@@ -34,12 +33,7 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      transition: transform 0.3s ease;
       text-align: center;
-    }
-
-    #ui-container:hover {
-      transform: scale(1.02);
     }
 
     h1 img {
@@ -56,6 +50,7 @@
       display: none;
     }
 
+    .button,
     .custom-file-upload,
     button {
       background: #ffcc70;
@@ -70,6 +65,7 @@
       width: 260px;
     }
 
+    .button:hover,
     .custom-file-upload:hover,
     button:hover {
       background-color: #ffc34d;
@@ -89,6 +85,15 @@
       visibility: hidden;
     }
 
+    select {
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-top: 10px;
+      max-width: 260px;
+      width: 100%;
+    }
+
     .hidden {
       display: none !important;
     }
@@ -99,8 +104,7 @@
         padding: 20px;
       }
 
-      .custom-file-upload,
-      button {
+      button, select {
         width: 100%;
       }
     }
@@ -110,80 +114,113 @@
   <div id="ui-container">
     <h1>
       <a href="https://ruffle.rs" target="_blank">
-        <img src="logo.svg" alt="Ruffle Logo" />
+        <img src="https://ruffle.rs/logo.svg" alt="Ruffle Logo"/>
       </a>
     </h1>
 
-    <button class="custom-file-upload" id="file-upload-label">Choose File (.swf)</button>
+    <button class="button" id="choose-file-btn">Play From File</button>
     <input type="file" id="file-input" accept=".swf" />
+
+    <button class="button" id="choose-from-folder-btn">Play From Folder</button>
+    <select id="folder-file-select" class="hidden"></select>
+
     <button id="start-button">Start</button>
   </div>
 
   <div id="player-container"></div>
 
   <script>
-    window.addEventListener('load', () => {
-      if (window.location.hash) {
-        history.replaceState(null, '', window.location.pathname);
-      }
-    });
-
     const fileInput = document.getElementById('file-input');
     const startButton = document.getElementById('start-button');
-    const fileUploadLabel = document.getElementById('file-upload-label');
+    const chooseFileBtn = document.getElementById('choose-file-btn');
+    const chooseFromFolderBtn = document.getElementById('choose-from-folder-btn');
+    const folderSelect = document.getElementById('folder-file-select');
     const playerContainer = document.getElementById('player-container');
     const uiContainer = document.getElementById('ui-container');
     const body = document.body;
 
+    let selectedFile = null;
+    let selectedFolderFile = null;
+    let fromFolder = false;
+
     const ruffle = window.RufflePlayer.newest();
     const player = ruffle.createPlayer();
 
-    let selectedFile = null;
-
-    fileUploadLabel.addEventListener('click', () => {
+    chooseFileBtn.addEventListener('click', () => {
       fileInput.click();
     });
 
     fileInput.addEventListener('change', (event) => {
-      const file = event.target.files[0];
-      if (file && file.name.endsWith('.swf')) {
-        selectedFile = file;
-        const fileNameWithoutExtension = file.name.replace(/\.swf$/, '');
-        fileUploadLabel.textContent = `Selected: ${fileNameWithoutExtension}.swf`;
-        const newUrl = `${window.location.pathname}#${fileNameWithoutExtension}`;
-        window.history.pushState({}, '', newUrl);
+      selectedFile = event.target.files[0];
+      fromFolder = false;
+      folderSelect.classList.add('hidden');
+    });
+
+    chooseFromFolderBtn.addEventListener('click', async () => {
+      fromFolder = true;
+      folderSelect.innerHTML = '<option>Loading...</option>';
+      folderSelect.classList.remove('hidden');
+
+      // Fetch the folder file list from swf-files/
+      try {
+        const response = await fetch('swf-files/');
+        const text = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const links = [...doc.querySelectorAll('a')];
+
+        const swfFiles = links
+          .map(link => link.getAttribute('href'))
+          .filter(name => name.endsWith('.swf'));
+
+        if (swfFiles.length === 0) {
+          folderSelect.innerHTML = '<option>No SWF files found</option>';
+          return;
+        }
+
+        folderSelect.innerHTML = '<option value="">Select a SWF file</option>';
+        swfFiles.forEach(file => {
+          const option = document.createElement('option');
+          option.value = file;
+          option.textContent = file;
+          folderSelect.appendChild(option);
+        });
+      } catch (error) {
+        console.error('Error loading folder:', error);
+        folderSelect.innerHTML = '<option>Error loading files</option>';
       }
+    });
+
+    folderSelect.addEventListener('change', () => {
+      selectedFolderFile = folderSelect.value;
     });
 
     startButton.addEventListener('click', () => {
-      if (selectedFile) {
-        const existingEmbed = playerContainer.querySelector('embed');
-        if (existingEmbed) existingEmbed.remove();
-
-        const embed = document.createElement('embed');
-        embed.setAttribute('type', 'application/x-shockwave-flash');
-        embed.style.width = '100vw';
-        embed.style.height = '100vh';
-        embed.style.border = 'none';
-
+      if (fromFolder && selectedFolderFile) {
+        loadAndPlaySWF(`swf-files/${selectedFolderFile}`);
+      } else if (!fromFolder && selectedFile) {
         const fileUrl = URL.createObjectURL(selectedFile);
-        embed.setAttribute('src', fileUrl);
-
-        playerContainer.appendChild(embed);
-        playerContainer.style.visibility = 'visible';
-        uiContainer.classList.add('hidden');
-        document.body.style.backgroundColor = 'black';
-
-        const fileNameWithoutExtension = selectedFile.name.replace(/\.swf$/, '');
-        body.id = fileNameWithoutExtension;
+        loadAndPlaySWF(fileUrl);
       } else {
-        startButton.textContent = "Select a File";
-        setTimeout(() => {
-          startButton.textContent = "Start";
-        }, 1000);
-        body.removeAttribute('id');
+        startButton.textContent = 'Select a File';
+        setTimeout(() => startButton.textContent = 'Start', 1000);
       }
     });
+
+    function loadAndPlaySWF(src) {
+      playerContainer.innerHTML = '';
+      const embed = document.createElement('embed');
+      embed.setAttribute('type', 'application/x-shockwave-flash');
+      embed.style.width = '100vw';
+      embed.style.height = '100vh';
+      embed.style.border = 'none';
+      embed.src = src;
+      playerContainer.appendChild(embed);
+
+      playerContainer.style.visibility = 'visible';
+      uiContainer.classList.add('hidden');
+      document.body.style.backgroundColor = 'black';
+    }
   </script>
 </body>
 </html>
