@@ -7,10 +7,6 @@
   <script src="ruffle-web-selfhosted/ruffle.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
@@ -50,9 +46,7 @@
       display: none;
     }
 
-    .button,
-    .custom-file-upload,
-    button {
+    button, select {
       background: #ffcc70;
       color: #1f2937;
       border: none;
@@ -65,9 +59,7 @@
       width: 260px;
     }
 
-    .button:hover,
-    .custom-file-upload:hover,
-    button:hover {
+    button:hover, select:hover {
       background-color: #ffc34d;
       transform: scale(1.05);
     }
@@ -83,15 +75,6 @@
       justify-content: center;
       align-items: center;
       visibility: hidden;
-    }
-
-    select {
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 14px;
-      margin-top: 10px;
-      max-width: 260px;
-      width: 100%;
     }
 
     .hidden {
@@ -114,15 +97,16 @@
   <div id="ui-container">
     <h1>
       <a href="https://ruffle.rs" target="_blank">
-        <img src="https://ruffle.rs/logo.svg" alt="Ruffle Logo"/>
+        <img src="logo.svg" alt="Ruffle Logo"/>
       </a>
     </h1>
 
-    <button class="button" id="choose-file-btn">Play From File</button>
+    <button id="choose-file-btn">Play From File</button>
     <input type="file" id="file-input" accept=".swf" />
 
-    <button class="button" id="choose-from-folder-btn">Play From Folder</button>
-    <select id="folder-file-select" class="hidden"></select>
+    <select id="folder-file-select">
+      <option value="">Loading games...</option>
+    </select>
 
     <button id="start-button">Start</button>
   </div>
@@ -133,7 +117,6 @@
     const fileInput = document.getElementById('file-input');
     const startButton = document.getElementById('start-button');
     const chooseFileBtn = document.getElementById('choose-file-btn');
-    const chooseFromFolderBtn = document.getElementById('choose-from-folder-btn');
     const folderSelect = document.getElementById('folder-file-select');
     const playerContainer = document.getElementById('player-container');
     const uiContainer = document.getElementById('ui-container');
@@ -146,6 +129,7 @@
     const ruffle = window.RufflePlayer.newest();
     const player = ruffle.createPlayer();
 
+    // Handle local file upload
     chooseFileBtn.addEventListener('click', () => {
       fileInput.click();
     });
@@ -153,46 +137,13 @@
     fileInput.addEventListener('change', (event) => {
       selectedFile = event.target.files[0];
       fromFolder = false;
-      folderSelect.classList.add('hidden');
-    });
-
-    chooseFromFolderBtn.addEventListener('click', async () => {
-      fromFolder = true;
-      folderSelect.innerHTML = '<option>Loading...</option>';
-      folderSelect.classList.remove('hidden');
-
-      // Fetch the folder file list from swf-files/
-      try {
-        const response = await fetch('swf-files/');
-        const text = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        const links = [...doc.querySelectorAll('a')];
-
-        const swfFiles = links
-          .map(link => link.getAttribute('href'))
-          .filter(name => name.endsWith('.swf'));
-
-        if (swfFiles.length === 0) {
-          folderSelect.innerHTML = '<option>No SWF files found</option>';
-          return;
-        }
-
-        folderSelect.innerHTML = '<option value="">Select a SWF file</option>';
-        swfFiles.forEach(file => {
-          const option = document.createElement('option');
-          option.value = file;
-          option.textContent = file;
-          folderSelect.appendChild(option);
-        });
-      } catch (error) {
-        console.error('Error loading folder:', error);
-        folderSelect.innerHTML = '<option>Error loading files</option>';
-      }
+      folderSelect.value = '';
     });
 
     folderSelect.addEventListener('change', () => {
       selectedFolderFile = folderSelect.value;
+      selectedFile = null;
+      fromFolder = true;
     });
 
     startButton.addEventListener('click', () => {
@@ -221,6 +172,32 @@
       uiContainer.classList.add('hidden');
       document.body.style.backgroundColor = 'black';
     }
+
+    // Load SWF list from JSON
+    async function loadSWFList() {
+      try {
+        const response = await fetch('swf-files/index.json');
+        const games = await response.json();
+
+        if (!Array.isArray(games) || games.length === 0) {
+          folderSelect.innerHTML = '<option>No games available</option>';
+          return;
+        }
+
+        folderSelect.innerHTML = '<option value="">Select a game</option>';
+        games.forEach(game => {
+          const option = document.createElement('option');
+          option.value = game.file;
+          option.textContent = game.name;
+          folderSelect.appendChild(option);
+        });
+      } catch (err) {
+        console.error("Failed to load SWF list:", err);
+        folderSelect.innerHTML = '<option>Error loading list</option>';
+      }
+    }
+
+    loadSWFList();
   </script>
 </body>
 </html>
