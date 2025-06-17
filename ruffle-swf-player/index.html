@@ -176,7 +176,7 @@
     // Load SWF list from JSON
     async function loadSWFList() {
       try {
-        const response = await fetch('swf-files/index.json');
+        const response = await fetch('ruffle-swf-player/swf-files/index.json');
         const games = await response.json();
 
         if (!Array.isArray(games) || games.length === 0) {
